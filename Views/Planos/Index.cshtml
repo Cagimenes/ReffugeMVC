@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ReffugeMVC.Models.Planos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Planos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-segundo">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomePlanos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoPlanos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescricaoPlanos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DuracaoPlanos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomePlanos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoPlanos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoPlanos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DuracaoPlanos)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PlanosId" class="btn btn-primary">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.PlanosId" class="btn btn-primary">Detalhes</a> 
+                <a asp-action="Delete" asp-route-id="@item.PlanosId" class="btn btn-primary">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

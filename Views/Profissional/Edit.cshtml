@@ -1,0 +1,44 @@
+﻿@model ReffugeMVC.Models.Profissional
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Profissional</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProfissionalId" />
+            <div class="form-group">
+                <label asp-for="NomeProfissional" class="control-label">Nome</label>
+                <input asp-for="NomeProfissional" class="form-control" />
+                <span asp-validation-for="NomeProfissional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoEspecializacaoId" class="control-label">Especialização</label>
+                <select asp-for="TipoEspecializacaoId" class="form-control" asp-items="ViewBag.TipoEspecializacaoId"></select>
+                <span asp-validation-for="TipoEspecializacaoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescricaoProfissional" class="control-label">Descrição</label>
+                <input asp-for="DescricaoProfissional" class="form-control" />
+                <span asp-validation-for="DescricaoProfissional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-segundo" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Voltar para a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

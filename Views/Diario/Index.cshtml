@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ReffugeMVC.Models.Diario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Diário</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-segundo">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataHorario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConteudoDiario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataHorario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConteudoDiario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DiarioId" class="btn btn-primary">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.DiarioId" class="btn btn-primary">Detalhes</a>
+                <a asp-action="Delete" asp-route-id="@item.DiarioId" class="btn btn-primary">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

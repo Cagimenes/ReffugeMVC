@@ -1,0 +1,24 @@
+﻿@model ReffugeMVC.Models.TipoEmocao
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Tipo de Emoção</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeTipoEmocao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeTipoEmocao)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.TipoEmocaoId" class="btn btn-segundo">Editar</a>
+    <a asp-action="Index" class="btn btn-primary">Voltar para a lista</a>
+</div>

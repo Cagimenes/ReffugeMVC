@@ -1,0 +1,48 @@
+﻿@model ReffugeMVC.Models.Planos
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Criar</h1>
+
+<h4>Planos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomePlanos" class="control-label">Plano</label>
+                <input asp-for="NomePlanos" class="form-control" />
+                <span asp-validation-for="NomePlanos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecoPlanos" class="control-label">Preço</label>
+                <input asp-for="PrecoPlanos" class="form-control" />
+                <span asp-validation-for="PrecoPlanos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescricaoPlanos" class="control-label">Descrição</label>
+                <input asp-for="DescricaoPlanos" class="form-control" />
+                <span asp-validation-for="DescricaoPlanos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DuracaoPlanos" class="control-label">Duração</label>
+                <input asp-for="DuracaoPlanos" class="form-control" />
+                <span asp-validation-for="DuracaoPlanos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-segundo" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Voltar para a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

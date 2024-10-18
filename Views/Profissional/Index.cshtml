@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ReffugeMVC.Models.Profissional>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Profissional</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-segundo">Criar Novo</a>
+</p>
+<div>
+    @using (Html.BeginForm("Index", "Profissional", FormMethod.Get))
+    {
+        <p>
+            Digite aqui sua pesquisa: @Html.TextBox("pesquisa")
+            <input class="btn btn-pesquisa" type="submit" value="Pesquisar" />
+        </p>
+    }
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeProfissional)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoEspecializacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescricaoProfissional)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeProfissional)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoEspecializacao.NomeTipoEspecializacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoProfissional)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProfissionalId" class="btn btn-primary">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.ProfissionalId" class="btn btn-primary">Detalhes</a> 
+                <a asp-action="Delete" asp-route-id="@item.ProfissionalId" class="btn btn-primary">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
